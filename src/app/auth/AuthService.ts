@@ -5,12 +5,13 @@ import {BehaviorSubject} from "rxjs";
 import {first, tap} from "rxjs/operators";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {IUser} from "../user/user.model";
+import {Environment} from "../../environments/env";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  resourceUrl = "localhost:8000";
+  resourceUrl = Environment.AUTH_URL;
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
 
   constructor(
@@ -20,7 +21,7 @@ export class AuthService {
   ) { }
 
   login(user: IUser) {
-    return this.http.post(this.resourceUrl + "/login", user, { observe: "response" })
+    return this.http.post(this.resourceUrl + "/api/login", user, { observe: "response" })
       .pipe(
         first(),
         tap((res: any) => {
@@ -37,7 +38,7 @@ export class AuthService {
   }
 
   register(user: IUser) {
-    return this.http.post(this.resourceUrl + "/register", user, { observe: "response" });
+    return this.http.post(this.resourceUrl + "/api/register", user, { observe: "response" });
   }
 
   isLogged(): boolean {
