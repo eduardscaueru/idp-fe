@@ -36,7 +36,6 @@ export class AuthService {
   }
 
   register(user: IUser) {
-    console.log("ggggg")
     return this.http.post(this.resourceUrl + "/api/auth/register", user, { observe: "response" });
   }
 
