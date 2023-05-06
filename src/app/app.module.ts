@@ -9,6 +9,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import {ImageCropperModule} from "ngx-image-cropper";
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ImageCropperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
