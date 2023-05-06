@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
   }
 
   register() {
-    console.log("signup register ")
+    console.log("signup register")
     this.authService.register(this.registerForm.value!).subscribe((res: any) => {
       Swal.fire({
         title: res.body.success,

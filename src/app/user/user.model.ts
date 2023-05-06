@@ -12,6 +12,8 @@ export interface IUser {
   role?: string | null;
   groups?: IGroup[] | null;
   moderatedGroups?: IGroup[] | null;
+  profilePic?: FormData | null;
+  imageString?: string | null;
 }
 
 export class User implements IUser {
@@ -25,6 +27,8 @@ export class User implements IUser {
     public password?: string | null,
     public role?: string | null,
     public groups?: IGroup[] | null,
-    public moderatedGroups?: IGroup[] | null
+    public moderatedGroups?: IGroup[] | null,
+    public profilePic?: FormData | null,
+    public imageString?: string | null
   ) {}
 }

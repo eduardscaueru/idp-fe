@@ -1,0 +1,16 @@
+<p>mygroup works! {{group!.id}}</p>
+<app-groupfeed [groupId]="group!.id!" ></app-groupfeed>
+
+<ng-template #createPostModal let-modal>
+  <form [formGroup]="postForm">
+    <div class="mb-3">
+      <label class="medium mb-1" for="titlePost">Title</label>
+      <input formControlName="title" class="form-control" id="titlePost" type="text" placeholder="Enter your username">
+    </div>
+    <div class="mb-3">
+      <label class="medium mb-1" for="textPost">Title</label>
+      <textarea formControlName="bodyText" class="form-control" id="textPost" type="text" placeholder="Enter your username"></textarea>
+    </div>
+    <button class="btn btn-primary" (click)="post(group!.id!)">Post</button>
+  </form>
+</ng-template>
