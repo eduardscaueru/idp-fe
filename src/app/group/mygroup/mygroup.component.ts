@@ -19,7 +19,7 @@ import {PostService} from "../../post/post.service";
 })
 export class MygroupComponent implements OnInit {
 
-  group: IGroup | undefined;
+  group: IGroup = {} as IGroup;
   pendingUsers: IUser[] | undefined;
   moderator: boolean | undefined;
   postForm = this.fb.group({
@@ -42,6 +42,7 @@ export class MygroupComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.groupService.getGroup(id).subscribe((res: any) => {
       this.group = res.body;
+      console.log(this.group);
       let bool1 = true; //this.authService.hasRole('MODERATOR');
       let bool2;
       // this.userService.checkModerator(this.group!.id!).subscribe((res: any) => {

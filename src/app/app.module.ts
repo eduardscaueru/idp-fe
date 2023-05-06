@@ -20,6 +20,7 @@ import { AuthInterceptorService } from './util/auth.interceptor';
 import { AuthGuard } from './util/auth.guard';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthService } from './auth/AuthService';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AuthService } from './auth/AuthService';
     ReactiveFormsModule,
     HttpClientModule,
     ImageCropperModule,
+    NgbModule,
   ],
   providers: [
     AuthService,

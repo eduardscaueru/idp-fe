@@ -23,7 +23,8 @@ export class DiscoverComponent implements OnInit {
     const token = this.jwtHelper.decodeToken(encodedToken!);
     const id = token.userId;
     this.groupService.getGroupsUserNotIn(id).subscribe((res: any) => {
-      this.groups = res.body;
+      console.log(res);
+      this.groups = res;
     })
   }
 

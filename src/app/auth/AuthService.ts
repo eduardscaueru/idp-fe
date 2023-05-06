@@ -25,7 +25,7 @@ export class AuthService {
         tap((res: any) => {
           this.isUserLoggedIn$.next(true);
           localStorage.setItem("token", res.body.token);
-          this.router.navigate(["/"]);
+          this.router.navigate(["/groups"]);
         })
       );
   }

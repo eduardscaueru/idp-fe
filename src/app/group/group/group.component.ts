@@ -21,6 +21,7 @@ export class GroupComponent implements OnInit {
     const encodedToken = localStorage.getItem("token");
     const token = this.jwtHelper.decodeToken(encodedToken!);
     const id = token.userId;
+    console.log(id);
     this.groupService.getGroupsUserIn(id).subscribe((res: any) => {
       this.groups = res.body;
     })
