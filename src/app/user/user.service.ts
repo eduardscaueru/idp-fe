@@ -9,11 +9,15 @@ import {map} from "rxjs/operators";
 })
 export class UserService {
 
-  resourceUrl = 'http://localhost:8080/api/user';
+  resourceUrl = 'http://localhost:8083/api/user';
 
   constructor(
     private http: HttpClient
   ) {}
+
+  getFeed(lastIndex: number) {
+      return this.http.get(this.resourceUrl + "/feed/" + lastIndex, { observe: "response" });
+  }
 
   getUser(id: number) {
     return this.http.get(this.resourceUrl + "/" + id, { observe: 'response' })

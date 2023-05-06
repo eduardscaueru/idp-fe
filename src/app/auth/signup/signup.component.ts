@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isLogged()) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/groups']);
     }
   }
 
