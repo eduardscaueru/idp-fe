@@ -26,11 +26,13 @@ export class SignupComponent implements OnInit {
     terms: []
   })
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if (this.authService.isLogged()) {
+      this.router.navigate(['/']);
+    }
   }
 
   register() {
-    console.log("signup register")
     this.authService.register(this.registerForm.value!).subscribe((res: any) => {
       Swal.fire({
         title: res.body.success,

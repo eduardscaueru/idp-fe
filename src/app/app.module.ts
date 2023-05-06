@@ -8,6 +8,9 @@ import { LoginComponent } from './auth/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { SignupComponent } from './auth/signup/signup.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import {ImageCropperModule} from "ngx-image-cropper";
 import { DiscoverComponent } from './group/discover/discover.component';
 import { GroupComponent } from './group/group/group.component';
 import { MygroupComponent } from './group/mygroup/mygroup.component';
@@ -24,6 +27,8 @@ import { AuthService } from './auth/AuthService';
     AppComponent,
     LoginComponent,
     SignupComponent,
+    HomeComponent,
+    UserComponent,
     DiscoverComponent,
     GroupComponent,
     MygroupComponent,
@@ -35,6 +40,7 @@ import { AuthService } from './auth/AuthService';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ImageCropperModule,
   ],
   providers: [
     AuthService,

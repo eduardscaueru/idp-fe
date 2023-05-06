@@ -1,3 +1,3 @@
 export class Environment {
-  public static AUTH_URL = 'localhost:8080'
+  public static AUTH_URL = 'http://localhost:8080'
 }

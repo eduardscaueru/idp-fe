@@ -8,8 +8,13 @@ import {DiscoverComponent} from "./group/discover/discover.component";
 import {GroupResolver} from "./group/group.resolver";
 import {GroupComponent} from "./group/group/group.component";
 import {MygroupComponent} from "./group/mygroup/mygroup.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
+  {
+    path: "",
+    component: HomeComponent,
+  },
   {
     path: "login",
     component: LoginComponent,

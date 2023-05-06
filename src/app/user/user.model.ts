@@ -2,7 +2,7 @@ import {IGroup} from "../group/group.model";
 import * as dayjs from "dayjs";
 
 export interface IUser {
-  id?: number;
+  id?: number | null;
   username?: string | null;
   firstName?: string | null;
   lastName?: string | null;
@@ -10,6 +10,8 @@ export interface IUser {
   email?: string | null;
   password?: string | null;
   role?: string | null;
+  profilePic?: FormData | null;
+  imageString?: string | null;
   groups?: IGroup[] | null;
   moderatedGroups?: IGroup[] | null;
   profilePic?: FormData | null;
@@ -18,7 +20,7 @@ export interface IUser {
 
 export class User implements IUser {
   constructor(
-    public id?: number,
+    public id?: number | null,
     public username?: string | null,
     public firstName?: string | null,
     public lastName?: string | null,
@@ -26,9 +28,9 @@ export class User implements IUser {
     public email?: string | null,
     public password?: string | null,
     public role?: string | null,
-    public groups?: IGroup[] | null,
-    public moderatedGroups?: IGroup[] | null,
     public profilePic?: FormData | null,
     public imageString?: string | null
+    public groups?: IGroup[] | null,
+    public moderatedGroups?: IGroup[] | null
   ) {}
 }
