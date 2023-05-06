@@ -15,6 +15,10 @@ export class UserService {
     private http: HttpClient
   ) {}
 
+  getFeed(lastIndex: number) {
+      return this.http.get(this.resourceUrl + "/feed/" + lastIndex, { observe: "response" });
+  }
+
   getUser(id: number) {
     return this.http.get(this.resourceUrl + "/" + id, { observe: 'response' })
       .pipe(map((res: any) => this.convertDateFromServer(res)));
