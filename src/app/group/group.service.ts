@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Environment} from "../../environments/env";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
 
-  resourceUrl = 'http://localhost:8083/api/group';
+  resourceUrl = Environment.GROUP_URL;
 
   constructor(protected http: HttpClient) {}
 
