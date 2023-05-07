@@ -6,6 +6,7 @@ export interface IPost {
   likeCount?: number;
   alreadyLiked?: boolean;
   bodyText?: string;
+  imageString?: string;
 }
 
 export class Post implements IPost {
@@ -17,5 +18,6 @@ export class Post implements IPost {
     public likeCount?: number,
     public alreadyLiked?: boolean,
     public bodyText?: string,
+    public imageString?: string
   ) { }
 }
