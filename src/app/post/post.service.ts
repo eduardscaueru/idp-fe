@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core"
 import {HttpClient} from "@angular/common/http";
 import {Post} from "./post.model";
-import {Environment} from "../../environments/env";
+import {environment} from "../../environments/env";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  resourceUrl = Environment.POST_URL;
+  resourceUrl = environment.POST_URL;
 
   constructor(
     public http: HttpClient

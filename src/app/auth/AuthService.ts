@@ -4,13 +4,13 @@ import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
 import {first, tap} from "rxjs/operators";
 import {IUser} from "../user/user.model";
-import {Environment} from "../../environments/env";
+import {environment} from "../../environments/env";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  resourceUrl = Environment.AUTH_URL;
+  resourceUrl = environment.AUTH_URL;
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
 
   constructor(

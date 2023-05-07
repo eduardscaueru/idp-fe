@@ -3,14 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {IUser} from "./user.model";
 import * as dayjs from "dayjs";
 import {map} from "rxjs/operators";
-import {Environment} from "../../environments/env";
+import {environment} from "../../environments/env";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  resourceUrl = Environment.USER_URL;
+  resourceUrl = environment.USER_URL;
 
   constructor(
     private http: HttpClient
