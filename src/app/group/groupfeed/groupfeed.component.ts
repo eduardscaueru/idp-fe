@@ -3,6 +3,7 @@ import {GroupService} from "../group.service";
 import {Post} from "../../post/post.model";
 import {PostService} from "../../post/post.service";
 import {HttpStatusCode} from "@angular/common/http";
+import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 
 @Component({
   selector: 'app-groupfeed',
@@ -20,10 +21,15 @@ export class GroupfeedComponent implements OnInit {
   constructor(
     private groupService: GroupService,
     private postService: PostService,
+    protected route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    
+    this.groupId = Number(this.route.snapshot.url[1]["path"]);
+
     this.groupService.getGroupFeed(this.groupId, -1).subscribe((res: any) => {
+      console.log(res.body);
       this.posts = res.body;
       this.done = this.posts.length < 10;
     });

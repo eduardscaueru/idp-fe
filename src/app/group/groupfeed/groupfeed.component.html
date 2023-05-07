@@ -1,11 +1,13 @@
 <div class="mt-2 mb-5">
   <div id="post" *ngFor="let post of posts">
-    <div class="card mb-1 p-3" >
+    <div class="card mb-1 p-3" style="width: 25rem;">
+      <img *ngIf="post.imageString" width="200" height="200" [src]="post.imageString">
+      
       <h3> {{ post.title }} </h3>
       <p class="f"> Created {{ post.timeCreatedString }} </p>
       <hr/>
       <p> {{ post.bodyText }} </p>
-      <p> {{ post.likeCount }} </p>
+      <p> {{ post.likeCount }} likes</p>
 
       <button class="btn btn-primary" (click)="likePost(post)" *ngIf="!post.alreadyLiked" > Like </button>
       <button class="btn btn-primary" (click)="unlikePost(post)" *ngIf="post.alreadyLiked" > Unlike </button>
