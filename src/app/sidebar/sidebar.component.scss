@@ -1,0 +1,44 @@
+.sidebar {
+  height: 90vh;
+  float: left;
+  position: fixed;
+  margin-top: 10vh;
+  z-index: 1;
+}
+
+hr {
+  margin-top: 0;
+}
+
+.nav-link {
+  text-decoration: none !important;
+  background: none !important;
+}
+
+.nav-link:hover {
+  background: #495057 !important;
+  cursor: pointer;
+}
+
+.routerlinkactive {
+  background: #495057 !important;
+}
+
+.x {
+  text-decoration: none !important;
+}
+
+.profilepic {
+  padding: 10px;
+  text-align: center;
+}
+
+.profilepic:hover {
+  cursor: pointer;
+  background: #495057 !important;
+}
+
+.bottom-sidebar {
+  padding: 10px;
+  text-align: center;
+}
