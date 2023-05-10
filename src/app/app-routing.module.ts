@@ -10,6 +10,7 @@ import {GroupComponent} from "./group/group/group.component";
 import { GroupfeedComponent } from './group/groupfeed/groupfeed.component';
 import {MygroupComponent} from "./group/mygroup/mygroup.component";
 import {HomeComponent} from "./home/home.component";
+import {UserComponent} from "./user/user.component";
 
 const routes: Routes = [
   {
@@ -56,7 +57,11 @@ const routes: Routes = [
     resolve: {
       user: GroupResolver
     }
-  }
+  },
+  {
+    path: "user/:id",
+    component: UserComponent,
+  },
 ];
 
 @NgModule({

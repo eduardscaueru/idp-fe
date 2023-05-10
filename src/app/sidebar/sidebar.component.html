@@ -3,7 +3,13 @@
   <div class="profilepic" [routerLink]="['/user', id]">
     <a
       class="text-white text-decoration-none">
-      <img *ngIf="this.profilePic" width="32rem" height="32rem" class="rounded-circle me-2" [src]="this.profilePic">
+      <img
+        *ngIf="this.profilePic"
+        width="32rem"
+        height="32rem"
+        class="rounded-circle me-2"
+        [src]="this.profilePic"
+      >
       <img *ngIf="!this.profilePic" width="32rem" height="32rem" class="rounded-circle me-2" src="./assets/images/default-profilepic.jpg">
       <strong> {{ username }} </strong>
     </a>
