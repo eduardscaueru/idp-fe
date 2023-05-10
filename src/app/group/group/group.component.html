@@ -1,4 +1,7 @@
 <div class="container">
+  <div *ngIf="groups!.length == 0">
+    <img src="../../../assets/images/nothing-here.png" style="margin-left: 20rem" class="position-fixed bg-transparent">
+  </div>
   <div id="group" *ngFor="let group of groups">
     <div class="card">
       <div class="card-header">
