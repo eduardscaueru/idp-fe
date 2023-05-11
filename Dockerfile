@@ -4,14 +4,20 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install --legacy-peer-deps
+RUN rm -rf node_modules 
 
-RUN npm run build
+RUN rm -rf package-lock.json
+
+RUN npm install
+
+EXPOSE 4200
+
+CMD ["npm", "start"]
 
 # Serve Application using Nginx Server
 
-FROM nginx:alpine
+# FROM nginx:alpine
 
-COPY --from=build /app/dist/ipd-fe/ /usr/share/nginx/html
+# COPY --from=build /app/dist/ipd-fe/ /usr/share/nginx/html
 
-EXPOSE 80
+# EXPOSE 80
