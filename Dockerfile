@@ -2,22 +2,16 @@ FROM node:18.16.0-alpine AS build
 
 WORKDIR /app
 
+COPY package.json package-lock.json ./
+RUN npm install --legacy-peer-deps
 COPY . .
-
-RUN rm -rf node_modules 
-
-RUN rm -rf package-lock.json
-
-RUN npm install
-
-EXPOSE 4200
-
-CMD ["npm", "start"]
+RUN npm run build
 
 # Serve Application using Nginx Server
 
-# FROM nginx:alpine
+FROM nginx:alpine
 
-# COPY --from=build /app/dist/ipd-fe/ /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/ipd-fe /usr/share/nginx/html
 
-# EXPOSE 80
+EXPOSE 80
