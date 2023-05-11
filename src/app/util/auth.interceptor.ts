@@ -25,7 +25,11 @@ export class AuthInterceptorService implements HttpInterceptor {
       const clonedRequest = req.clone({headers});
       return next.handle(clonedRequest);
     } else {
-      return next.handle(req);
+      const headers = new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      });
+      const clonedRequest = req.clone({headers});
+      return next.handle(clonedRequest);
     }
   }
 }
