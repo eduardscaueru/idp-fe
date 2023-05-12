@@ -8,7 +8,7 @@ import {IUser} from "../../user/user.model";
 import {UserService} from "../../user/user.service";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import Swal from "sweetalert2";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Post} from "../../post/post.model";
 import {PostService} from "../../post/post.service";
 
@@ -23,9 +23,9 @@ export class MygroupComponent implements OnInit {
   pendingUsers: IUser[] | undefined;
   moderator: boolean | undefined;
   postForm = this.fb.group({
-    title: [],
-    bodyText: []
-  })
+    'title': new FormControl(),
+    'bodyText': new FormControl(),
+  });
 
   constructor(
     protected groupService: GroupService,
@@ -40,15 +40,9 @@ export class MygroupComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
+
     this.groupService.getGroup(id).subscribe((res: any) => {
       this.group = res.body;
-      console.log(this.group);
-      let bool1 = true; //this.authService.hasRole('MODERATOR');
-      let bool2;
-      // this.userService.checkModerator(this.group!.id!).subscribe((res: any) => {
-      //   bool2 = res.body;
-      //   this.moderator = bool1 && bool2;
-      // });
       this.moderator = true;
     })
   }
@@ -78,6 +72,7 @@ export class MygroupComponent implements OnInit {
   post(groupId: number) {
     const title = this.postForm.get(['title'])?.value;
     const bodyText = this.postForm.get(['bodyText'])?.value;
+    console.log(title);
     this.postService.createPost(title, bodyText, groupId).subscribe();
   }
 }

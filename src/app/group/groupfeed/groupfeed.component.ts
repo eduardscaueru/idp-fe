@@ -25,10 +25,10 @@ export class GroupfeedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.groupId = Number(this.route.snapshot.url[1]["path"]);
 
-    this.groupService.getGroupFeed(this.groupId, -1).subscribe((res: any) => {
+    this.groupService.getGroupFeed(this.groupId, 0).subscribe((res: any) => {
       console.log(res.body);
       this.posts = res.body;
       this.done = this.posts.length < 10;
