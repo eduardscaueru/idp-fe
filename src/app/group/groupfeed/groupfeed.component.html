@@ -1,7 +1,7 @@
 <div class="mt-2 mb-5">
-  <div *ngIf="posts!.length == 0">
-    <img src="../../../assets/images/nothing-here.png" style="margin-left: 20rem" class="position-fixed bg-transparent">
-  </div>
+<!--  <div *ngIf="posts!.length == 0">-->
+<!--    <img src="../../../assets/images/nothing-here.png" style="margin-left: 20rem" class="position-fixed bg-transparent">-->
+<!--  </div>-->
   <div id="post" *ngFor="let post of posts">
     <div class="card mb-1 p-3" style="width: 25rem;">
       <img *ngIf="post.imageString" width="200" height="200" [src]="post.imageString">

@@ -62,6 +62,10 @@ const routes: Routes = [
     path: "user/:id",
     component: UserComponent,
   },
+  {
+    path: "mygroup/:id",
+    component: MygroupComponent,
+  },
 ];
 
 @NgModule({

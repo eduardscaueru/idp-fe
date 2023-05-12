@@ -22,6 +22,7 @@ export class PostService {
   }
 
   createPost(title: string, body: string, groupId: number) {
-    return this.http.post(this.resourceUrl + '/' + groupId, {title, body}, { observe: 'response' })
+    let userId = localStorage.getItem("userId");
+    return this.http.post(this.resourceUrl + '/' + groupId, {title, body, userId}, { observe: 'response' })
   }
 }
