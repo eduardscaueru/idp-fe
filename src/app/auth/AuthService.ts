@@ -19,7 +19,7 @@ export class AuthService {
   ) { }
 
   login(user: IUser) {
-    return this.http.post(this.resourceUrl + "/api/auth/login", user, { observe: "response" })
+    return this.http.post(this.resourceUrl + "/login", user, { observe: "response" })
       .pipe(
         first(),
         tap((res: any) => {
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   register(user: IUser) {
-    return this.http.post(this.resourceUrl + "/api/auth/register", user, { observe: "response" });
+    return this.http.post(this.resourceUrl + "/register", user, { observe: "response" });
   }
 
   isLogged(): boolean {
