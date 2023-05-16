@@ -1,7 +1,7 @@
 <div class="appdiv">
-<!--  <app-navbar style="z-index: 1"></app-navbar>-->
+  <app-navbar style="z-index: 1"></app-navbar>
   <div style="display: inline">
-<!--    <app-sidenavbar *ngIf="isLoggedIn()" ></app-sidenavbar>-->
+    <app-sidebar *ngIf="isLoggedIn()" ></app-sidebar>
     <div *ngIf="!isLoggedIn()" id="routeroutlet">
       <router-outlet></router-outlet>
     </div>

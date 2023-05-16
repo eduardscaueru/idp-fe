@@ -1,0 +1,49 @@
+<div class="sidebar d-flex flex-column flex-shrink-0 text-white bg-dark" style="width: 15%;">
+  <hr>
+  <div class="profilepic" [routerLink]="['/user', id]">
+    <a
+      class="text-white text-decoration-none">
+      <img
+        *ngIf="this.profilePic"
+        width="32rem"
+        height="32rem"
+        class="rounded-circle me-2"
+        [src]="this.profilePic"
+      >
+      <img *ngIf="!this.profilePic" width="32rem" height="32rem" class="rounded-circle me-2" src="./assets/images/default-profilepic.jpg">
+      <strong> {{ username }} </strong>
+    </a>
+  </div>
+  <hr>
+  <ul
+    class="nav nav-pills flex-column mb-auto">
+    <li class="text-center">
+      <a
+        routerLinkActive="routerlinkactive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['']"
+        class="nav-link text-white">
+        <i class="fa-solid fa-house-chimney"></i> Home
+      </a>
+    </li>
+    <li class="text-center">
+      <a
+        routerLinkActive="routerlinkactive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/discover']"
+        class="nav-link text-white">
+        <i class="fa-solid fa-compass"></i> Discover
+      </a>
+    </li>
+    <li class="text-center">
+      <a
+        routerLinkActive="routerlinkactive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/groups']"
+        class="nav-link text-white">
+        <i class="fa-solid fa-people-line"></i> My Groups
+      </a>
+    </li>
+  </ul>
+  <hr>
+</div>

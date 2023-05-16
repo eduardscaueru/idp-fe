@@ -1,4 +1,7 @@
 <div class="container">
+  <div *ngIf="groups!.length == 0">
+    <img src="../../../assets/images/nothing-here.png" style="margin-left: 20rem" class="position-fixed bg-transparent">
+  </div>
   <div id="group" *ngFor="let group of groups">
     <div class="card">
       <div class="card-header">
@@ -10,7 +13,7 @@
         <p> {{ group.description }}</p>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary" [routerLink]="['/feed', group.id!]">Enter</button>
+        <button class="btn btn-primary" [routerLink]="['/mygroup', group.id!]">Enter</button>
       </div>
     </div>
   </div>

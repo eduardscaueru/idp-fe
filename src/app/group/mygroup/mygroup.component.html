@@ -1,15 +1,23 @@
-<p>mygroup works! {{group!.id}}</p>
+<div style="display: inline">
+  <div *ngIf="moderator" class="button-pending">
+    <button class="btn btn-success" type="button" (click)="createPost(group!.id!, createPostModal)">Create post</button>
+  </div>
+  <div *ngIf="!moderator" class="button-pending">
+    <button class="btn btn-success" type="button" (click)="createPost(group!.id!, createPostModal)">Create post</button>
+  </div>
+</div>
+
 <app-groupfeed [groupId]="group!.id!" ></app-groupfeed>
 
 <ng-template #createPostModal let-modal>
   <form [formGroup]="postForm">
     <div class="mb-3">
       <label class="medium mb-1" for="titlePost">Title</label>
-      <input formControlName="title" class="form-control" id="titlePost" type="text" placeholder="Enter your username">
+      <input [formControlName]="'title'" class="form-control" id="titlePost" type="text" placeholder="Post title">
     </div>
     <div class="mb-3">
-      <label class="medium mb-1" for="textPost">Title</label>
-      <textarea formControlName="bodyText" class="form-control" id="textPost" type="text" placeholder="Enter your username"></textarea>
+      <label class="medium mb-1" for="textPost">Body</label>
+      <textarea [formControlName]="'bodyText'" class="form-control" id="textPost" type="text" placeholder="Post body"></textarea>
     </div>
     <button class="btn btn-primary" (click)="post(group!.id!)">Post</button>
   </form>

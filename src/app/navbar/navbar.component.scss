@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 10% !important;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+}
+
+.navbar-text {
+  margin-left: 2rem;
+  padding: 0.5rem 0;
+  color: white;
+}
+
+.btn {
+  display: inline;
+  margin: 0.3rem;
+  padding: 0.15rem 0.5rem;
+}

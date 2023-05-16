@@ -39,7 +39,6 @@ export class UserComponent implements OnInit {
     this.isSaving = false;
     this.userService.getUser(this.route.snapshot.params['id']).subscribe((res: any) => {
       this.updateForm(res.body);
-      console.log(this.userForm.value!);
     })
   }
 
