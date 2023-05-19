@@ -72,7 +72,9 @@ export class MygroupComponent implements OnInit {
   post(groupId: number) {
     const title = this.postForm.get(['title'])?.value;
     const bodyText = this.postForm.get(['bodyText'])?.value;
-    console.log(title);
-    this.postService.createPost(title, bodyText, groupId).subscribe();
+    this.postService.createPost(title, bodyText, groupId).subscribe((res: any) => {
+      this.modalService.dismissAll();
+      window.location.reload();
+    });
   }
 }
