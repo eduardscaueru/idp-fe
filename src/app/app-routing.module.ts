@@ -52,7 +52,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "feed/:id",
+    path: "feed",
     component: GroupfeedComponent,
     resolve: {
       user: GroupResolver
