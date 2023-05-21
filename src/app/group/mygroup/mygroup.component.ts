@@ -6,7 +6,7 @@ import {AuthService} from "../../auth/AuthService";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {IUser} from "../../user/user.model";
 import {UserService} from "../../user/user.service";
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router";
 import Swal from "sweetalert2";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Post} from "../../post/post.model";
@@ -35,7 +35,8 @@ export class MygroupComponent implements OnInit {
     protected modalService: NgbModal,
     protected route: ActivatedRoute,
     protected fb: FormBuilder,
-    protected postService: PostService
+    protected postService: PostService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -74,7 +75,7 @@ export class MygroupComponent implements OnInit {
     const bodyText = this.postForm.get(['bodyText'])?.value;
     this.postService.createPost(title, bodyText, groupId).subscribe((res: any) => {
       this.modalService.dismissAll();
-      window.location.reload();
+      this.router.navigate(['/mygroup/' + groupId]);
     });
   }
 }
