@@ -55,6 +55,7 @@ export class UserComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const user = this.createFromForm();
+    console.log(user);
     this.userService.save(user).subscribe((res: any) => {
       Swal.fire({
         title: 'success'

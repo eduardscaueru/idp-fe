@@ -1,7 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {AuthService} from "../auth/AuthService";
 import {IPost, Post} from "../post/post.model";
-import {UserService} from "../user/user.service";
 import {PostService} from "../post/post.service";
 import {HttpStatusCode} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
@@ -23,7 +22,6 @@ export class HomeComponent implements OnInit {
 
     constructor(
       protected postService: PostService,
-      protected userService: UserService,
       protected authService: AuthService,
       protected jwtHelper: JwtHelperService,
       protected groupService: GroupService
@@ -35,7 +33,7 @@ export class HomeComponent implements OnInit {
       const token = this.jwtHelper.decodeToken(encodedToken!);
       const id = token.userId;
       var groupsUserIn: Group[] = [];
-      this.userService.getGroupsUserIn(id).subscribe((res: any) => {
+      this.groupService.getGroupsUserIn(id).subscribe((res: any) => {
         groupsUserIn = res.body;
         groupsUserIn.forEach((group) => {
           console.log(group);
@@ -88,7 +86,7 @@ export class HomeComponent implements OnInit {
           const token = this.jwtHelper.decodeToken(encodedToken!);
           const id = token.userId;
           var groupsUserIn: Group[] = [];
-          this.userService.getGroupsUserIn(id).subscribe((res: any) => {
+          this.groupService.getGroupsUserIn(id).subscribe((res: any) => {
             groupsUserIn = res.body;
             groupsUserIn.forEach((group) => {
               console.log(group);

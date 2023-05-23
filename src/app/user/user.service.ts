@@ -10,7 +10,7 @@ import {environment} from "../../environments/env";
 })
 export class UserService {
 
-  resourceUrl = environment.GROUP_URL;
+  resourceUrl = environment.USER_URL;
 
   constructor(
     private http: HttpClient
@@ -32,10 +32,6 @@ export class UserService {
 
   getImageUser(id: number) {
     return this.http.get(this.resourceUrl + "/image/" + id, { observe: 'response' });
-  }
-
-  getGroupsUserIn(id: number) {
-    return this.http.get(this.resourceUrl + "/userIn/" + id, { observe: 'response' });
   }
 
   protected convertDateFromClient(user: IUser) {
